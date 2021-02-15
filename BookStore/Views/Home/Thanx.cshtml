@@ -1,0 +1,24 @@
+﻿@model UserResponse
+@{
+    ViewData["Title"] = "Thanx";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+</head>
+<body>
+    @if (Model.IsAccepted)
+    {
+        <p>Hizmetlerimizden memnun olmana çok sevindik. Kullanıcılarımızın memnuniyeti için gece gündüz çalışıyoruz. </p>
+        
+    }
+    else
+    {
+        <p>Hizmetlerimizin kalitesini arttırabilmek için siz değerli kullanıcılarımızın görüşleri bizim için çok önemli. Görüşlerin için teşekkür ederiz. </p>
+    }
+</body>
+</html>
+

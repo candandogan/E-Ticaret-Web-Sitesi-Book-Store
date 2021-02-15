@@ -1,0 +1,33 @@
+﻿@model BookStore.Models.AuthorBook
+
+@{
+    ViewData["Title"] = "Oluştur";
+}
+
+<h1>Yeni Yazar-Kitap Eşleştirmesi</h1>
+
+<h4>Yazar-Kitap</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookId" class="control-label"></label>
+                <select asp-for="BookId" class ="form-control" asp-items="ViewBag.BookId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuthorId" class="control-label"></label>
+                <select asp-for="AuthorId" class ="form-control" asp-items="ViewBag.AuthorId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Oluştur" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">ANASAYFAYA GERİ DÖN</a>
+</div>
+

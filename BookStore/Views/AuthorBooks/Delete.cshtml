@@ -1,0 +1,34 @@
+﻿@model BookStore.Models.AuthorBook
+
+@{
+    ViewData["Title"] = "Sil";
+}
+
+<h1>SİL</h1>
+
+<h3>Bunu silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Yazar-Kitap</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Book)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Book.Name)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Author.LastName)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="BookId" />
+        <input type="hidden" asp-for="AuthorId" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index">LİSTEYE GERİ DÖN</a>
+    </form>
+</div>

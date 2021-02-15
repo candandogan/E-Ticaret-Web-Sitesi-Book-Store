@@ -1,0 +1,125 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CANDAN KİTABEVİ</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/alertify/css/alertify.min.css" rel="stylesheet" />
+    <link href="~/lib/alertify/css/themes/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CANDAN KİTABEVİ</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                        </li>
+
+
+
+
+
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">
+                                    KİTAPLARI FİLTRELE
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a asp-action="Brands" asp-controller="Home" class="list-group-item list-group-item-action">Yayınevine Göre</a></li>
+                                    <li><a asp-action="Languages" asp-controller="Home" class="list-group-item list-group-item-action">Basım Diline Göre</a></li>
+                                    <li><a asp-action="Genres" asp-controller="Home" class="list-group-item list-group-item-action">Türlere Göre</a></li>
+                                    <li><a asp-action="Authors" asp-controller="Home" class="list-group-item list-group-item-action">Yazarına Göre</a></li>
+                                </ul>
+                            </div>
+                            @*<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Message">Bize Ulaşın!</a>*@
+
+                        </li>
+                        
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Message">Bize Ulaşın!</a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Hoşgeldiniz! @User.Identity.Name (Çıkış yap)</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                            }
+
+                        </li>
+
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+
+
+
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">
+                                        YÖNETİCİ İŞLEMLERİ
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li> <a asp-action="Message" asp-controller="Message" class="list-group-item list-group-item-action">Mesajları Görüntüle</a></li>
+                                        <li>  <a asp-action="Shopping" asp-controller="Home" class="list-group-item list-group-item-action">Siparişleri Görüntüle</a></li>
+                                        <li> <a asp-action="Index" asp-controller="Books" class="list-group-item list-group-item-action">Kitap İşlemleri</a></li>
+                                        <li> <a asp-action="Index" asp-controller="Brands" class="list-group-item list-group-item-action">Yayınevi İşlemleri</a></li>
+                                        <li> <a asp-action="Index" asp-controller="Authors" class="list-group-item list-group-item-action">Yazar İşlemleri</a></li>
+                                        <li> <a asp-action="Index" asp-controller="Languages" class="list-group-item list-group-item-action">Basım Dili İşlemleri</a></li>
+                                        <li> <a asp-action="Index" asp-controller="Genres" class="list-group-item list-group-item-action">Tür İşlemleri</a></li>
+                                        <li><a asp-action="Index" asp-controller="AuthorBooks" class="list-group-item list-group-item-action">Yazar-Kitap İşlemleri</a></li>
+                                        <li> <a asp-action="Index" asp-controller="GenreBooks" class="list-group-item list-group-item-action">Kitap-Tür İşlemleri</a></li>
+                                    </ul>
+                                </div>
+
+
+                            </li>
+
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            
+        @RenderBody()
+        
+
+        </main>
+
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - BookStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/alertify/alertify.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+<script src="~/lib/alertify/alertify.min.js"></script>

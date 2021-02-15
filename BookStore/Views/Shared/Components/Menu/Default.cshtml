@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Language>
+
+<div class="list-group">
+
+
+    @foreach (var language in Model)
+    {
+        <a asp-action="Index" asp-controller="Home" asp-route-languageId="@language.LanguageId" class="list-group-item list-group-item-action">@language.Name</a>
+    }
+
+
+
+
+</div>
+
+

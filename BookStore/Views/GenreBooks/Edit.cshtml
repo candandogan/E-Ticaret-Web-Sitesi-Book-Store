@@ -1,0 +1,27 @@
+﻿@model BookStore.Models.GenreBook
+
+@{
+    ViewData["Title"] = "Güncelle";
+}
+
+<h1>Güncelle</h1>
+
+<h4>Kitap-Tür</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BookId" />
+            <input type="hidden" asp-for="GenreId" />
+            <div class="form-group">
+                <input type="submit" value="Güncelle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Anasayfaya dön</a>
+</div>
+

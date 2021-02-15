@@ -1,0 +1,60 @@
+﻿@model CompleteShopping 
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ödeme ve Adres Bilgileri</title>
+</head>
+<body>
+    <h1>ADRES VE ÖDEME BİLGİLERİ</h1>
+    <form method="post" asp-action="CompleteShopping" asp-controller="Home">
+        <p>
+            <label>Ad-Soyad:</label>
+            <input asp-for="@Model.FullName" />
+            <span asp-validation-for="@Model.FullName"></span>
+        </p>
+        <p>
+            <label>Adres:</label>
+            <input asp-for="@Model.Adress" />
+            <span asp-validation-for="@Model.Adress"></span>
+        </p>
+        <p>
+            <label>Telefon Numarası:</label>
+            <input asp-for="@Model.PhoneNumber" />
+            <span asp-validation-for="@Model.PhoneNumber"></span>
+
+        </p>
+        <p>
+            <label>E-Posta:</label>
+            <input asp-for="@Model.EMail" />
+            <span asp-validation-for="@Model.EMail"></span>
+        </p>
+        <p>
+            <label>Kart Üzerindeki Ad-Soyad:</label>
+            <input asp-for="@Model.FullNameOnCard" />
+            <span asp-validation-for="@Model.FullNameOnCard"></span>
+        </p>
+        <p>
+            <label>Kart Üzerindeki Numara:</label>
+            <input asp-for="@Model.NumberOnCard" />
+            <span asp-validation-for="@Model.NumberOnCard"></span>
+        </p>
+        <p>
+            <label>Kart Üzerindeki Son Kullanma Tarihi:</label>
+            <input asp-for="@Model.DateOfCard" />
+            <span asp-validation-for="@Model.DateOfCard"></span>
+        </p>
+        <p>
+            <label>Kart Üzerindeki Güvenlik Kodu:</label>
+            <input asp-for="@Model.SCofCard" />
+            <span asp-validation-for="@Model.SCofCard"></span>
+        </p>
+        <input type="submit" name="name" value="ALIŞVERİŞİ TAMAMLA" />
+    </form>
+</body>
+</html>

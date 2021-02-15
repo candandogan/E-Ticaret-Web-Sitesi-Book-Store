@@ -1,0 +1,34 @@
+﻿@model UserResponse
+@{
+    ViewData["Title"] = "Message";
+}
+
+
+
+<form method="post" asp-action="Message" asp-controller="Home">
+    <p>
+        <label>Ad-Soyad:</label>
+        <input asp-for="@Model.FullName"/>
+        <span asp-validation-for="@Model.FullName"></span>
+    </p>
+    <p>
+        <label>E-Mail:</label>
+        <input asp-for="@Model.Email" />
+        <span asp-validation-for="@Model.Email"></span>
+    </p>
+    <p>
+        <label>Hizmetlerimizden memnun musunuz?</label>
+        <select asp-for="@Model.IsAccepted">
+            <option value="True">Evet, memnunum.</option>
+            <option value="False">Hayır, memnun değilim.</option>
+            <option value="False">Kararsızım.</option>
+        </select>
+        <span asp-validation-for="@Model.IsAccepted"></span>
+    </p>
+    <p>
+        <label>Görüş/Öneri ya da Şikayet:</label>
+        <input type="text" name="Message" value="" />
+    </p>
+    <input type="submit" name="name" value="Gönder!"/>
+</form>
+
